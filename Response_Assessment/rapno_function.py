@@ -102,7 +102,7 @@ Input:
 - binary_image: 2D numpy array representing an axial slice with mask of current connected component
 - tol: float, cos(radian) allowed to satisfy orthogonal condition. 0.1 allows for 85-95 degree condition
 """
-def rapno(binary_image, tol=0.1, output_file=None, background_image=None, vox_x, thres):
+def rapno(binary_image, tol=0.1, output_file=None, background_image=None, vox_x = 1, thres = 10):
 	#finds the location that would make an outline of the lesion at that axial slice
 	binary_image2 = binary_image.astype('uint8') * 255
 	contours = find_contours(binary_image2, level=1)

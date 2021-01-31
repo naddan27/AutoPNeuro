@@ -416,6 +416,7 @@ Inputs:
 - all_keys - list of int, key value that represents positive class
 """
 def get_volume_multiple_segmentation(id_file_path_list, all_keys):
+    print(id_file_path_list)
     assert len(id_file_path_list[1]) == len(all_keys), "Length of keys does not match number of file paths"
     volumes = []
 
@@ -460,10 +461,6 @@ def volumes_to_df(base_dir, all_labels, all_keys, random_sample = None, random_s
 
     num_processes = multiprocessing.cpu_count()
     parallel_get_volume = partial(get_volume_multiple_segmentation, all_keys = all_keys)
-
-    # to allow parallel processing
-    # with tqdm_joblib(tqdm(desc="Batch Volume scores...", total=len(id_file_paths))) as progress_bar:
-    #     volume_as_list = Parallel(n_jobs=num_cores)(delayed(parallel_get_volume)(fps) for fps in file_paths)
 
     pool = multiprocessing.Pool(processes=num_processes)
     volume_as_list = []
