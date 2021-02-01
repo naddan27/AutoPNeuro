@@ -8,6 +8,22 @@ import pandas as pd
 from tqdm import tqdm
 from rapno_function import rapno
 
+
+"""
+	Calculates the sum of the products of the bidimensional diameters of a tumor lesion
+
+Inputs:
+- mask: NumPy array representing the mask of the tumor label
+- vox_x: the size of the voxel in the x dimension
+- vox_z: the size of the voxel in the z dimension
+- pic_dir: path of the RAPNO images to be saved
+- background: NumPy array representing the image
+- num_lesions: the number of lesions to sum (4 for MBL RAPNO criteria)
+- all_lesions: show the rapno scores of all of the lesions up to 'num_lesions'
+
+Output:
+- sum_rano: sum of the products of the bidimensional diameters of tumor
+"""
 def get_rapno(mask,vox_x,vox_z,pic_dir,background, num_lesions, make_csv=True, all_lesions = False):
 	#split connected components_____________________________________________
 	#points are considered connected if they have the same value and are neighbors
