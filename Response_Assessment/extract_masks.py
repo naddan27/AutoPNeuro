@@ -416,7 +416,6 @@ Inputs:
 - all_keys - list of int, key value that represents positive class
 """
 def get_volume_multiple_segmentation(id_file_path_list, all_keys):
-    print(id_file_path_list)
     assert len(id_file_path_list[1]) == len(all_keys), "Length of keys does not match number of file paths"
     volumes = []
 
